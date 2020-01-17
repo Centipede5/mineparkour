@@ -8,6 +8,9 @@ var THREEx	= THREEx || {};
 THREEx.MinecraftChar	= function(skinUrl){
 	// set default arguments values
 	skinUrl	= skinUrl || (THREEx.MinecraftChar.baseUrl + "images/jetienne.png")
+	if(skinUrl.indexOf('.png')==-1){
+		skinUrl = THREEx.MinecraftChar.baseUrl + THREEx.MinecraftChar.skinWellKnownUrls[skinUrl];
+	}
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
@@ -219,20 +222,34 @@ THREEx.MinecraftChar.prototype.loadWellKnownSkin	= function(name, onLoad){
 }
 
 THREEx.MinecraftChar.skinWellKnownUrls	= {
-	'3djesus'		: 'images/3djesus.png',
-	'iron-man'		: 'images/Iron-Man-Minecraft-Skin.png',
-	'joker'			: 'images/Joker.png',
+	'steve'			: 'images/steve.png',
 	'mario'			: 'images/Mario.png',
-	'sonicthehedgehog'	: 'images/Sonicthehedgehog.png',
+	'sonic'	: 'images/Sonicthehedgehog.png',
+	'agent'		: 'images/agentsmith.png',
+	'ninja'		: 'images/martialartist.png',
+	
 	'spiderman'		: 'images/Spiderman.png',
+	'joker'			: 'images/Joker.png',
 	'superman'		: 'images/Superman.png',
-	'agentsmith'		: 'images/agentsmith.png',
 	'batman'		: 'images/batman.png',
-	'char'			: 'images/char.png',
+	'flash'		: 'images/theflash.png',
 	'god'			: 'images/god.png',
-	'jetienne'		: 'images/jetienne.png',
-	'martialartist'		: 'images/martialartist.png',
-	'robocop'		: 'images/robocop.png',
-	'theflash'		: 'images/theflash.png',
-	'woody'			: 'images/woody.png',
+	
+	
+	// '3djesus'		: 'images/3djesus.png',
+	// 'iron-man'		: 'images/Iron-Man-Minecraft-Skin.png',
+	// 'joker'			: 'images/Joker.png',
+	// 'mario'			: 'images/Mario.png',
+	// 'sonicthehedgehog'	: 'images/Sonicthehedgehog.png',
+	// 'spiderman'		: 'images/Spiderman.png',
+	// 'superman'		: 'images/Superman.png',
+	// 'agentsmith'		: 'images/agentsmith.png',
+	// 'batman'		: 'images/batman.png',
+	
+	// 'god'			: 'images/god.png',
+	// 'jetienne'		: 'images/jetienne.png',
+	// 'martialartist'		: 'images/martialartist.png',
+	// 'robocop'		: 'images/robocop.png',
+	// 'theflash'		: 'images/theflash.png',
+	// 'woody'			: 'images/woody.png',
 }
