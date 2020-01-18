@@ -184,8 +184,8 @@ THREEx.Animation.prototype.start	= function(){
 	// init the loop callback
 	var startDate	= Date.now()/1000;
 	var duration	= this.duration();
-	this._$loopCb	= function(){
-		var age		= Date.now()/1000 - startDate;
+	this._$loopCb	= function(speed){
+		var age		= (Date.now()/1000 - startDate)*speed;
 		var position	= this._buildPosition(age)
 		this._onUpdate(position)
 	}.bind(this)

@@ -222,7 +222,7 @@ THREEx.MinecraftChar.prototype.loadWellKnownSkin	= function(name, onLoad){
 }
 
 THREEx.MinecraftChar.skinWellKnownUrls	= {
-	'steve'			: 'images/steve.png',
+	'steve'			: 'images/char.png',
 	'mario'			: 'images/Mario.png',
 	'sonic'	: 'images/Sonicthehedgehog.png',
 	'agent'		: 'images/agentsmith.png',
