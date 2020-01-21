@@ -2,6 +2,23 @@
 <html lang="en">
 	<head>
 	    <link rel="stylesheet" href="css/frame.css">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111768569-9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111768569-9');
+</script>
+<script async src="//api.adinplay.com/display/pub/RKB/rocketbirds.ga/display.min.js"></script>
+<script async src="//api.adinplay.com/player/v2/RKB/rocketbirds.ga/player.min.js"></script>
+		<script>
+			var aiptag = aiptag || {};
+	aiptag.cmd = aiptag.cmd || [];
+	aiptag.cmd.display = aiptag.cmd.display || [];
+	aiptag.cmd.player = aiptag.cmd.player || [];
+		</script>
 <style>
 	@font-face {
   font-family: 'Minecraft';
@@ -159,7 +176,7 @@
 	<div id="centerdiv">
 		<button id="skinsbutton" class="button" onclick = "openSkins()">skins!</button>
 		<input type="text" id="nickname" maxlen="15"><br><br>
-		<button class="button" id="spawnButton" onclick="window.play();">PLAY</button>
+		<button class="button" id="spawnButton" onclick="window.Play();">PLAY</button>
 		<div class="adcard">
 			<div id='rocketbirds-ga_300x250'></div>
 		</div>
@@ -213,6 +230,34 @@
 		<script src='threex/threex.minecraft/threex.minecraftnickname.js'></script>
 		<script src='threex/threex.minecraft/threex.minecraftbubble.js'></script>
 		<script>
+		aiptag.cmd.display.push(function() { aipDisplayTag.display('rocketbirds-ga_300x250'); });
+			window.addEventListener("load",function(){
+aiptag.cmd.player.push(function() {
+	adplayer = new aipPlayer({
+		AD_WIDTH: 960,
+		AD_HEIGHT: 540,
+		AD_FULLSCREEN: true,
+		AD_CENTERPLAYER: false,
+		LOADING_TEXT: 'loading advertisement',
+		PREROLL_ELEM: function(){return document.getElementById('preroll')},
+		AIP_COMPLETE: function ()  {
+			window.play();
+		},
+		AIP_REMOVE: function ()  {
+			// If needed it's save to remove the PREROLL_ELEM from the page at this point.
+		}
+	});
+});	
+})
+			var playcount = 0;
+			window.Play = function(){
+  		if(playcount%3==0){
+  			aiptag.cmd.player.push(function() { adplayer.startPreRoll(); });
+  		}else{
+  			window.play();
+  		}
+  		playcount++;
+  	}
 		var HttpClient = function() {
     	this.get = function(aUrl, aCallback) {
         	var anHttpRequest = new XMLHttpRequest();
