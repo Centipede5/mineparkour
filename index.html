@@ -275,6 +275,18 @@
 		<script src='threex/threex.minecraft/threex.minecraftnickname.js'></script>
 		<script src='threex/threex.minecraft/threex.minecraftbubble.js'></script>
 		<script>
+			function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+			if(getParameterByName("crazygames",document.location.href)){
+				document.getElementById("links").style.display = "none";
+			}
 		aiptag.cmd.display.push(function() { aipDisplayTag.display('rocketbirds-ga_300x250'); });
 			window.addEventListener("load",function(){
 aiptag.cmd.player.push(function() {
