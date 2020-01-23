@@ -286,7 +286,7 @@
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 			if(getParameterByName("crazygames",document.location.href)){
-				document.getElementById("links").style.display = "none";
+				document.getElementById("links").innerHTML = "";
 			}
 		aiptag.cmd.display.push(function() { aipDisplayTag.display('rocketbirds-ga_300x250'); });
 			window.addEventListener("load",function(){
